@@ -8,7 +8,7 @@
         @keyup.enter="updateTodo"
         class="addtodoText todotitle"
       />
-      <button @click="updateTodo" class="addtodoButton todotitle">추가</button>
+      <button @click="showtest" class="addtodoButton todotitle">추가</button>
     </div>
     <ul class="todos">
       <li v-for="(item, index) in todos" :key="index" class="todoItem">
@@ -23,17 +23,20 @@
           </div>
         </label>
 
-        <!-- <button @click="delectTodo(item)" class="delectTodo">
-        </button> -->
-        <v-icon>highlight_off</v-icon>
+        <button @click="delectTodo(item)" class="delectTodo">
+          <!-- test<v-icon>mbi-highlight_off</v-icon> -->
+          <!-- <v-icon x-large dark>gavel</v-icon> -->
+          <!-- <v-icon>fas fa-lock</v-icon> -->
+          <v-icon large color="green darken-2">email</v-icon>
+          <!-- <v-icon large color="green darken-2"> md-delete_forever </v-icon> -->
+        </button>
       </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { Options } from "vue-class-component";
+import { Options, Vue } from "vue-class-component";
 
 @Options({
   data() {
@@ -54,6 +57,15 @@ import { Options } from "vue-class-component";
     delectTodo(data: { checked: boolean; text: string }) {
       this.todos.splice(data, 1);
     },
+    showtest() {
+      console.log(this.$store._mutations.saveLocal[0](), this.$store);
+      // this.$store._mutations.saveLocal(this.todos);
+    },
+  },
+  created() {
+    // this.todos = this.$store.saveTodolist.getLocal();
+    // console.log(store.saveTodolist.getLocal());
+    // console.log(this.$store.saveTodolist.getLocal());
   },
 })
 export default class Landing extends Vue {}
