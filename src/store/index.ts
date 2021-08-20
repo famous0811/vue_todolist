@@ -1,9 +1,9 @@
 import { createStore } from "vuex";
-import saveTodolist from "./modules/saveTodo";
+import { saveModule } from "./modules/saveTodo";
 
+// state: {},
 export default createStore({
-  state: {},
   mutations: {},
   actions: {},
-  modules: { saveTodolist: saveTodolist },
+  modules: { saveModule },
 });

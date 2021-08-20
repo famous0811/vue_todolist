@@ -58,17 +58,21 @@ import { Options, Vue } from "vue-class-component";
       this.todos.splice(data, 1);
     },
     showtest() {
-      console.log(this.$store._mutations.saveLocal[0](), this.$store);
-      // this.$store._mutations.saveLocal(this.todos);
+      const data = this.$store.dispatch("GetLocalData");
+      console.log(JSON.parse(data));
+      // this.$store.dispatch("saveLocal", this.todos);
     },
   },
-  created() {
+})
+@
+export default class Landing extends Vue {
+  setup() {
+    console.log("test");
     // this.todos = this.$store.saveTodolist.getLocal();
     // console.log(store.saveTodolist.getLocal());
     // console.log(this.$store.saveTodolist.getLocal());
-  },
-})
-export default class Landing extends Vue {}
+  }
+}
 </script>
 
 <style lang="scss">
